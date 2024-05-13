@@ -13,7 +13,13 @@ const Clubs = () => {
     }, [])
     return(
         <div>
-            People
+            <h1>Clubs</h1>
+            <div>
+                {clubs.map(club => (
+                    <h3 key={club.id}>{club.name}</h3>
+
+                ))}
+            </div>
         </div>
     )
 }
