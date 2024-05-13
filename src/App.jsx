@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import { Route, Routes, NavLink } from 'react-router-dom';
 
 import './App.css';
-import Home from './components/Home';
-import Clubs from './components/Clubs';
+import Home from './pages/Home';
+import Clubs from './pages/Clubs';
 
 function App() {
     return (
