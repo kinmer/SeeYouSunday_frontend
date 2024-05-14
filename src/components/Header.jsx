@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import {
-    Container,
     Navbar,
     NavbarBrand,
     Collapse,
@@ -10,13 +9,13 @@ import {
     NavItem,
 } from 'reactstrap';
 import ClubLogo from '../assets/img/ClubLogo.png';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <Navbar sticky="top" expand="md">
+        <Navbar sticky="top" expand="md" className="navebar">
             <NavbarBrand className="ms-5" href="/">
                 <img src={ClubLogo} alt="logo" className="float-start" />
                 <h1 className="mt-1">See You Sunday</h1>
@@ -31,7 +30,7 @@ const Header = () => {
                     </NavItem>
                     <NavItem>
                         <NavLink className="nav-link" to="/clubs">
-                            <i className="fa fa-list fa-lg" /> Directory
+                            <i className="fa fa-list fa-lg" /> Clubs
                         </NavLink>
                     </NavItem>
                     <NavItem>

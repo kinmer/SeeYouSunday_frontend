@@ -8,24 +8,10 @@ import Footer from './components/Footer';
 function App() {
     return (
         <div className="App">
-            <Header />
-            {/* <Navbar dark color="primary" sticky="top" expand="md">
-                <Container>
-                    <NavbarBrand href="/">
-                        <img src={ClubLogo} alt="logo" />
-                    </NavbarBrand>
-                </Container>
-            </Navbar> */}
-            <nav>
-                <ul>
-                    <NavLink to="./">
-                        <li>Home</li>
-                    </NavLink>
-                    <NavLink to="./clubs">
-                        <li>Clubs</li>
-                    </NavLink>
-                </ul>
-            </nav>
+            <header>
+                <Header />
+            </header>
+
             <main>
                 <Routes>
                     <Route path="/" element={<Home />} />
