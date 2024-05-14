@@ -16,7 +16,7 @@ const ClubsList = () => {
     return (
         <Row className="ms-auto">
             {clubs.map((club) => (
-                <Col md="5" className="m-4" key={club.id}>
+                <Col md="5" className="m-4" key={club._id}>
                     <ClubCard name={club.name} image={club.image} />
                 </Col>
             ))}
