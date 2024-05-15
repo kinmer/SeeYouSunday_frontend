@@ -3,6 +3,7 @@ import axios from 'axios';
 import ClubCard from './ClubCard';
 import { Row, Col } from 'reactstrap';
 import { Link, Route, Routes } from 'react-router-dom';
+import ClubForm from '../../components/ClubForm';
 
 const ClubsList = () => {
     const [clubs, setClubs] = useState([]);
@@ -25,6 +26,9 @@ const ClubsList = () => {
                     </Col>
                 ))}
             </Row>
+            <Link to="/newclub">
+                <button>New Club</button>
+            </Link>
             <Row>
                 <Routes>
                     <Route
