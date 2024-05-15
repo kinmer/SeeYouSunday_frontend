@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ClubCard from './ClubCard';
 import { Row, Col } from 'reactstrap';
-import { Link, Route, Routes } from 'react-router-dom';
-import AddClub from './AddClub';
+import { Link } from 'react-router-dom';
 
 const ClubsList = () => {
     const [clubs, setClubs] = useState([]);

@@ -1,5 +1,3 @@
-import { useNavigate } from 'react-router-dom';
-
 const ClubForm = ({ newClub, handleChange, addClub }) => {
     return (
         <div>
