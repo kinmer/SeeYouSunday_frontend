@@ -1,19 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
-const ClubForm = (props) => {
-    const navigate = useNavigate();
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        props.addClub(e);
-    };
-
-    const { newClub, handleChange } = props;
-
+const ClubForm = ({ newClub, handleChange, addClub }) => {
     return (
         <div>
             <h1>Add A Club</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={addClub}>
                 <input
                     type="text"
                     value={newClub.name}

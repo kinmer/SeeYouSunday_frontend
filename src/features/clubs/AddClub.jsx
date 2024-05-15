@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import ClubForm from './ClubForm'; // Adjust the import path as necessary
 import { useNavigate } from 'react-router-dom';
-
+import ClubForm from './ClubForm';
 const AddClub = () => {
     const [newClub, setNewClub] = useState({
         name: '',
@@ -26,7 +25,7 @@ const AddClub = () => {
         e.preventDefault();
         try {
             await axios.post('http://localhost:3000/clubs', newClub);
-            navigate('/clubs'); // Redirect to club list after successful submission
+            navigate('/clubs');
         } catch (error) {
             console.error('There was an error adding the club!', error);
         }
