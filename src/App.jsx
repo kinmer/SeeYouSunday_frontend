@@ -5,6 +5,7 @@ import Clubs from './pages/Clubs';
 import Members from './pages/Members';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ClubDetails from './pages/ClubDetails';
 
 function App() {
     return (
