@@ -1,13 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 
 const ClubForm = (props) => {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
+
     const handleSubmit = (e) => {
+        e.preventDefault();
         props.addClub(e);
-        navigate('/clubs');
     };
 
-    const newClub = props.newClub;
+    const { newClub, handleChange } = props;
 
     return (
         <div>
@@ -16,39 +17,38 @@ const ClubForm = (props) => {
                 <input
                     type="text"
                     value={newClub.name}
-                    onChange={props.handleChange}
-                    name={'name'}
-                    placeholder={'name'}
+                    onChange={handleChange}
+                    name="name"
+                    placeholder="name"
                 />
                 <input
                     type="text"
                     value={newClub.location}
-                    onChange={props.handleChange}
-                    name={'location'}
-                    placeholder={'location'}
+                    onChange={handleChange}
+                    name="location"
+                    placeholder="location"
                 />
                 <input
                     type="text"
                     value={newClub.time}
-                    onChange={props.handleChange}
-                    name={'time'}
-                    placeholder={'time'}
+                    onChange={handleChange}
+                    name="time"
+                    placeholder="time"
                 />
                 <input
                     type="text"
                     value={newClub.image}
-                    onChange={props.handleChange}
-                    name={'image'}
-                    placeholder={'image'}
+                    onChange={handleChange}
+                    name="image"
+                    placeholder="image"
                 />
-                <input
-                    type="text-area"
+                <textarea
                     value={newClub.description}
-                    onChange={props.handleChange}
-                    name={'description'}
-                    placeholder={'description'}
+                    onChange={handleChange}
+                    name="description"
+                    placeholder="description"
                 />
-                <button>Submit</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     );
