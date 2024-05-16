@@ -17,7 +17,7 @@ const ClubDetails = () => {
     const [clubDetails, setClubDetails] = useState({});
     const [members, setMembers] = useState([]);
     const [availableMembers, setAvailableMembers] = useState([]);
-
+    const [selectedMember, setSelectedMember] = useState('');
     const { _id } = useParams();
     const navigate = useNavigate();
 
@@ -25,6 +25,7 @@ const ClubDetails = () => {
         let response = await axios.get(`http://localhost:3000/clubs/${_id}?`);
         console.log(response);
         setClubDetails(response.data);
+        setMembers(response.data.members);
     };
     const fetchAvailableMembers = async () => {
         try {
@@ -39,16 +40,21 @@ const ClubDetails = () => {
         fetchAvailableMembers();
     }, [_id]);
 
-    const handleAddMember = async (memberId) => {
+    const handleAddMember = async (e) => {
+        e.preventDefault();
         try {
             const response = await axios.post(
                 `http://localhost:3000/clubs/${_id}/addMember`,
-                { memberId }
+                { memberId: selectedMember }
             );
             setMembers([...members, response.data]);
         } catch (error) {
             console.error('There was an error adding the member!', error);
         }
+    };
+
+    const handleChange = (e) => {
+        setSelectedMember(e.target.value);
     };
 
     const deleteClub = async () => {
@@ -88,15 +94,14 @@ const ClubDetails = () => {
                 <ListGroup>
                     {members.map((member) => (
                         <ListGroupItem key={member._id}>
-                            {member.name} - {member.occupation} - Age:{' '}
-                            {member.age}
+                            {member.name} - {member.occupation}
                         </ListGroupItem>
                     ))}
                 </ListGroup>
 
                 <h4>Add Existing Member</h4>
-                <form onSubmit={(e) => e.preventDefault()}>
-                    <select onChange={(e) => handleAddMember(e.target.value)}>
+                <form onSubmit={handleAddMember}>
+                    <select onChange={handleChange} value={selectedMember}>
                         <option value="">Select a member</option>
                         {availableMembers.map((member) => (
                             <option key={member._id} value={member._id}>
