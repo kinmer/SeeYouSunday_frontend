@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import {
     Card,
     CardBody,
-    CardSubtitle,
     CardImg,
     CardTitle,
     Row,
@@ -14,7 +13,6 @@ import {
     ListGroup,
     ListGroupItem,
 } from 'reactstrap';
-import ClubCard from '../features/clubs/ClubCard';
 
 const ClubDetails = () => {
     const [clubDetails, setClubDetails] = useState({});
@@ -31,9 +29,9 @@ const ClubDetails = () => {
 
     return (
         <Row>
-            <Col md="7">
+            <Col md="8">
                 <Card>
-                    <img alt="club photo" src={clubDetails.image} />
+                    <CardImg alt="club photo" src={clubDetails.image} />
                     <CardBody>
                         <CardTitle tag="h4">{clubDetails.name}</CardTitle>
                         <CardText>{clubDetails.description}</CardText>
@@ -44,6 +42,12 @@ const ClubDetails = () => {
                         </ListGroupItem>
                         <ListGroupItem>Time: {clubDetails.time}</ListGroupItem>
                     </ListGroup>
+                    <CardBody>
+                        <button>edit</button>
+                        <button>delete</button>
+                        <CardLink href="#">Card Link</CardLink>
+                        <CardLink href="#">Another Card Link</CardLink>
+                    </CardBody>
                 </Card>
             </Col>
             <Col md="3"></Col>
@@ -52,7 +56,3 @@ const ClubDetails = () => {
 };
 
 export default ClubDetails;
-
-// <div className="club-details">
-//             <ClubCard name={clubDetails.name} image={clubDetails.image} />
-//         </div>
