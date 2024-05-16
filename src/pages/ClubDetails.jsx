@@ -57,8 +57,6 @@ const ClubDetails = () => {
                             Edit
                         </button>
                         <button onClick={deleteClub}>Delete</button>
-                        <CardLink href="#">Card Link</CardLink>
-                        <CardLink href="#">Another Card Link</CardLink>
                     </CardBody>
                 </Card>
             </Col>
