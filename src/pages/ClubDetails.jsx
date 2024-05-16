@@ -56,7 +56,7 @@ const ClubDetails = () => {
                         <button onClick={() => navigate(`/clubs/edit/${_id}`)}>
                             Edit
                         </button>
-                        <button>delete</button>
+                        <button onClick={deleteClub}>Delete</button>
                         <CardLink href="#">Card Link</CardLink>
                         <CardLink href="#">Another Card Link</CardLink>
                     </CardBody>
