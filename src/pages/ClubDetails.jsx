@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import {
     Card,
     CardBody,
@@ -17,6 +17,7 @@ import {
 const ClubDetails = () => {
     const [clubDetails, setClubDetails] = useState({});
     const { _id } = useParams();
+    const navigate = useNavigate();
 
     const fetchClubDetails = async () => {
         let response = await axios.get(`http://localhost:3000/clubs/${_id}?`);
@@ -43,7 +44,9 @@ const ClubDetails = () => {
                         <ListGroupItem>Time: {clubDetails.time}</ListGroupItem>
                     </ListGroup>
                     <CardBody>
-                        <button>edit</button>
+                        <button onClick={() => navigate(`/clubs/edit/${_id}`)}>
+                            Edit
+                        </button>
                         <button>delete</button>
                         <CardLink href="#">Card Link</CardLink>
                         <CardLink href="#">Another Card Link</CardLink>

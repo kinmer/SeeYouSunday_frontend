@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ClubDetails from './pages/ClubDetails';
 import AddClub from './features/clubs/AddClub';
+import EditClub from './features/clubs/EditClub';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route path="/clubs/:_id" element={<ClubDetails />} />
                     <Route path="/members" element={<Members />} />
                     <Route path="/clubs/add" element={<AddClub />} />
+                    <Route path="/clubs/edit/:_id" element={<EditClub />} />
                 </Routes>
             </main>
             <Footer />
