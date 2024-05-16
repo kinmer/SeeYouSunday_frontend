@@ -8,7 +8,6 @@ import {
     CardTitle,
     Row,
     Col,
-    CardLink,
     CardText,
     ListGroup,
     ListGroupItem,
@@ -16,6 +15,9 @@ import {
 
 const ClubDetails = () => {
     const [clubDetails, setClubDetails] = useState({});
+    const [members, setMembers] = useState([]);
+    const [availableMembers, setAvailableMembers] = useState([]);
+
     const { _id } = useParams();
     const navigate = useNavigate();
 
@@ -24,9 +26,30 @@ const ClubDetails = () => {
         console.log(response);
         setClubDetails(response.data);
     };
+    const fetchAvailableMembers = async () => {
+        try {
+            const response = await axios.get('http://localhost:3000/members');
+            setAvailableMembers(response.data);
+        } catch (error) {
+            console.error('Error fetching available members:', error);
+        }
+    };
     useEffect(() => {
         fetchClubDetails();
+        fetchAvailableMembers();
     }, [_id]);
+
+    const handleAddMember = async (memberId) => {
+        try {
+            const response = await axios.post(
+                `http://localhost:3000/clubs/${_id}/addMember`,
+                { memberId }
+            );
+            setMembers([...members, response.data]);
+        } catch (error) {
+            console.error('There was an error adding the member!', error);
+        }
+    };
 
     const deleteClub = async () => {
         try {
@@ -60,7 +83,30 @@ const ClubDetails = () => {
                     </CardBody>
                 </Card>
             </Col>
-            <Col md="3"></Col>
+            <Col md="3">
+                <h5> Club Members</h5>
+                <ListGroup>
+                    {members.map((member) => (
+                        <ListGroupItem key={member._id}>
+                            {member.name} - {member.occupation} - Age:{' '}
+                            {member.age}
+                        </ListGroupItem>
+                    ))}
+                </ListGroup>
+
+                <h4>Add Existing Member</h4>
+                <form onSubmit={(e) => e.preventDefault()}>
+                    <select onChange={(e) => handleAddMember(e.target.value)}>
+                        <option value="">Select a member</option>
+                        {availableMembers.map((member) => (
+                            <option key={member._id} value={member._id}>
+                                {member.name} - {member.occupation}
+                            </option>
+                        ))}
+                    </select>
+                    <button type="submit">Add Member</button>
+                </form>
+            </Col>
         </Row>
     );
 };
