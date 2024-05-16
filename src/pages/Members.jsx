@@ -2,7 +2,10 @@ import {
     Card,
     CardBody,
     CardImg,
+    CardHeader,
     CardTitle,
+    CardColumns,
+    CardFooter,
     Row,
     Col,
     CardLink,
@@ -25,18 +28,21 @@ const Clubs = () => {
     }, []);
     return (
         <Row>
-            <Col md="8">
-                <div>
+            <Col md="7" className="number-list">
+                <CardColumns>
                     {members.map((member) => (
-                        <div key={member._id}>
-                            <h2>{member.name}</h2>
-                            <h3>{member.age}</h3>
-                            <h3>{member.occupation}</h3>
-                            <p>{member.profile}</p>
-                        </div>
+                        <Card key={member._id} className="mt-4">
+                            <CardHeader>{member.occupation}</CardHeader>
+                            <CardBody>
+                                <CardTitle tag="h5">{member.name}</CardTitle>
+                                <CardText>{member.profile}</CardText>
+                            </CardBody>
+                            <CardFooter>Age: {member.age}</CardFooter>
+                        </Card>
                     ))}
-                </div>
+                </CardColumns>
             </Col>
+            <Col md="3" className="add-new-member"></Col>
         </Row>
     );
 };
