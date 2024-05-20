@@ -16,10 +16,12 @@ const AnimatedClubCard = (props) => {
     }, []);
 
     return (
-        <Card>
-            <CardImg width="100%" src={props.image} />
-            <CardTitle>{props.name}</CardTitle>
-        </Card>
+        <animated.div style={animatedStyle}>
+            <Card>
+                <CardImg width="100%" src={props.image} />
+                <CardTitle>{props.name}</CardTitle>
+            </Card>
+        </animated.div>
     );
 };
 
