@@ -66,10 +66,7 @@ const ClubCarousel = () => {
                     alt={club.name}
                     className="d-block w-100"
                 />
-                <CarouselCaption
-                    captionHeader={club.name}
-                    captionText={club.description}
-                />
+                <CarouselCaption captionHeader={club.name} />
             </CarouselItem>
         );
     });
