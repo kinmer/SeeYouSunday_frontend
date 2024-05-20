@@ -11,6 +11,10 @@ const AnimatedClubCard = (props) => {
         config: { duration: 500 },
     });
 
+    useEffect(() => {
+        setToggle(true);
+    }, []);
+
     return (
         <Card>
             <CardImg width="100%" src={props.image} />
