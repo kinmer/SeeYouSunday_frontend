@@ -9,18 +9,21 @@ import {
     CarouselIndicators,
     CarouselCaption,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
 
-const ClubCaraousel = () => {
+const ClubCarousel = () => {
     const [clubs, setClubs] = useState([]);
     const [randomClubs, setRandomClubs] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
 
     const fetchClubs = async () => {
-        let response = await axios.get('http://localhost:3000/clubs');
-        setClubs(response.data);
-        setRandomClubs(selectRandomClubs(response.data, 3));
+        try {
+            const response = await axios.get('http://localhost:3000/clubs');
+            setClubs(response.data);
+            setRandomClubs(selectRandomClubs(response.data, 3));
+        } catch (error) {
+            console.error('Error fetching clubs:', error);
+        }
     };
 
     useEffect(() => {
@@ -31,6 +34,7 @@ const ClubCaraousel = () => {
         const shuffled = clubs.sort(() => 0.5 - Math.random());
         return shuffled.slice(0, count);
     };
+
     const next = () => {
         if (animating) return;
         const nextIndex =
@@ -63,12 +67,41 @@ const ClubCaraousel = () => {
                     className="d-block w-100"
                 />
                 <CarouselCaption
-                    captionText={club.description}
                     captionHeader={club.name}
+                    captionText={club.description}
                 />
             </CarouselItem>
         );
     });
+
+    return (
+        <Row className="mb-4">
+            <Col>
+                <Carousel
+                    activeIndex={activeIndex}
+                    next={next}
+                    previous={previous}
+                >
+                    <CarouselIndicators
+                        items={randomClubs}
+                        activeIndex={activeIndex}
+                        onClickHandler={goToIndex}
+                    />
+                    {slides}
+                    <CarouselControl
+                        direction="prev"
+                        directionText="Previous"
+                        onClickHandler={previous}
+                    />
+                    <CarouselControl
+                        direction="next"
+                        directionText="Next"
+                        onClickHandler={next}
+                    />
+                </Carousel>
+            </Col>
+        </Row>
+    );
 };
 
-export default ClubCaraousel;
+export default ClubCarousel;
