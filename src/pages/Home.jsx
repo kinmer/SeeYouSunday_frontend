@@ -1,6 +1,7 @@
 import ClubCaraousel from '../features/clubs/ClubCarousel';
 import { Row, Col } from 'reactstrap';
 import Activity from '../assets/img/Activity.png';
+import Topics from '../components/Topics';
 
 const Home = () => {
     return (
@@ -31,6 +32,11 @@ const Home = () => {
                 <h3 style={{ color: '#66bfbf' }}>Hot Choice</h3>
                 <Col md="9">
                     <ClubCaraousel />
+                </Col>
+            </Row>
+            <Row className="center-topics">
+                <Col md="8">
+                    <Topics />
                 </Col>
             </Row>
         </>

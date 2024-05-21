@@ -15,10 +15,15 @@ body {
     height: 250px;
 }
 
-.center-carousel {
+.center-carousel,
+.center-topics {
     display: flex;
     justify-content: center;
-
+    margin: 100px;
+}
+ {
+    display: flex;
+    justify-content: center;
     margin: 100px;
 }
 
