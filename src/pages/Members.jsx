@@ -55,7 +55,7 @@ const Members = () => {
     return (
         <Row>
             <Col md="7" className="number-list">
-                <h4>Member List</h4>
+                <h3 style={{ color: '#f76b8a' }}>Member List</h3>
                 <CardColumns>
                     {members.map((member) => (
                         <Card key={member._id} className="mt-3">
@@ -70,7 +70,7 @@ const Members = () => {
                 </CardColumns>
             </Col>
             <Col md="3" className="add-new-member">
-                <h4>Add A Member</h4>
+                <h3 style={{ color: '#f76b8a' }}>Add A Member</h3>
                 <form onSubmit={addMember}>
                     <input
                         type="text"
