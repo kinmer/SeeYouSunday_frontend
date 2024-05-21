@@ -28,13 +28,13 @@ const Home = () => {
             <br />
             <br />
 
-            <Row className="center-carousel">
+            <Row className="center-carousel text-center">
                 <h3 style={{ color: '#f76b8a' }}>Hottest Clubs</h3>
                 <Col md="9">
                     <ClubCaraousel />
                 </Col>
             </Row>
-            <Row className="center-topics">
+            <Row className="center-topics text-center">
                 <h3 style={{ color: '#f76b8a' }}>Hottest Clubs</h3>
                 <Col md="8">
                     <Topics />
