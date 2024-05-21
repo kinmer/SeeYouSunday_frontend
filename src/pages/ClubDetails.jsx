@@ -126,27 +126,7 @@ const ClubDetails = () => {
                 </Card>
             </Col>
             <Col md="3">
-                <h5> Club Members</h5>
-                <ListGroup>
-                    {members.map((member) => (
-                        <ListGroupItem key={member._id}>
-                            {member.name} - {member.occupation}
-                        </ListGroupItem>
-                    ))}
-                </ListGroup>
-
-                <h4>Add Existing Member</h4>
-                <form onSubmit={handleAddMember}>
-                    <select onChange={handleChange} value={selectedMember}>
-                        <option value="">Select a member</option>
-                        {availableMembers.map((member) => (
-                            <option key={member._id} value={member._id}>
-                                {member.name} - {member.occupation}
-                            </option>
-                        ))}
-                    </select>
-                    <button type="submit">Add Member</button>
-                </form>
+                <AddMember />
 
                 <h3>Events</h3>
                 <ul>
@@ -189,7 +169,6 @@ const ClubDetails = () => {
                     <button type="submit">Add Event</button>
                 </form>
             </Col>
-            <AddMember />
         </Row>
     );
 };

@@ -5,7 +5,6 @@ import {
     CardText,
     Card,
     CardTitle,
-    Button,
 } from 'reactstrap';
 
 const Topics = () => {

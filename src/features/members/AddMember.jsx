@@ -1,17 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import {
-    Card,
-    CardBody,
-    CardImg,
-    CardTitle,
-    Row,
-    Col,
-    CardText,
-    ListGroup,
-    ListGroupItem,
-} from 'reactstrap';
+import { ListGroup, ListGroupItem } from 'reactstrap';
 
 const AddMember = () => {
     const [clubDetails, setClubDetails] = useState({});
@@ -68,52 +58,29 @@ const AddMember = () => {
     };
 
     return (
-        <Row>
-            <Col md="8">
-                <Card>
-                    <CardImg alt="club photo" src={clubDetails.image} />
-                    <CardBody>
-                        <CardTitle tag="h4">{clubDetails.name}</CardTitle>
-                        <CardText>{clubDetails.description}</CardText>
-                    </CardBody>
-                    <ListGroup flush>
-                        <ListGroupItem>
-                            Location: {clubDetails.location}
-                        </ListGroupItem>
-                        <ListGroupItem>Time: {clubDetails.time}</ListGroupItem>
-                    </ListGroup>
-                    <CardBody>
-                        <button onClick={() => navigate(`/clubs/edit/${_id}`)}>
-                            Edit
-                        </button>
-                        <button onClick={deleteClub}>Delete</button>
-                    </CardBody>
-                </Card>
-            </Col>
-            <Col md="3">
-                <h5> Club Members</h5>
-                <ListGroup>
-                    {members.map((member) => (
-                        <ListGroupItem key={member._id}>
-                            {member.name} - {member.occupation}
-                        </ListGroupItem>
-                    ))}
-                </ListGroup>
+        <>
+            <h5> Club Members</h5>
+            <ListGroup>
+                {members.map((member) => (
+                    <ListGroupItem key={member._id}>
+                        {member.name} - {member.occupation}
+                    </ListGroupItem>
+                ))}
+            </ListGroup>
 
-                <h4>Add Existing Member</h4>
-                <form onSubmit={handleAddMember}>
-                    <select onChange={handleChange} value={selectedMember}>
-                        <option value="">Select a member</option>
-                        {availableMembers.map((member) => (
-                            <option key={member._id} value={member._id}>
-                                {member.name} - {member.occupation}
-                            </option>
-                        ))}
-                    </select>
-                    <button type="submit">Add Member</button>
-                </form>
-            </Col>
-        </Row>
+            <h4>Add Existing Member</h4>
+            <form onSubmit={handleAddMember}>
+                <select onChange={handleChange} value={selectedMember}>
+                    <option value="">Select a member</option>
+                    {availableMembers.map((member) => (
+                        <option key={member._id} value={member._id}>
+                            {member.name} - {member.occupation}
+                        </option>
+                    ))}
+                </select>
+                <button type="submit">Add Member</button>
+            </form>
+        </>
     );
 };
 
