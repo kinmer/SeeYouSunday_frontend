@@ -35,7 +35,7 @@ const Home = () => {
                 </Col>
             </Row>
             <Row className="center-topics text-center">
-                <h3 style={{ color: '#f76b8a' }}>Hottest Clubs</h3>
+                <h3 style={{ color: '#f76b8a' }}>Trend Events</h3>
                 <Col md="8">
                     <Topics />
                 </Col>
