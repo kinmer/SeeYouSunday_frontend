@@ -4,10 +4,10 @@ import Activity from '../assets/img/Activity.png';
 
 const Home = () => {
     return (
-        <div>
+        <>
             <Row>
                 <Col md="5" className="m-4">
-                    <h3 style={{ color: 'red' }}>
+                    <h3 style={{ color: '#66bfbf' }}>
                         Seize Your Sunday with
                         <br />
                         See You Sunday
@@ -28,12 +28,12 @@ const Home = () => {
             <br />
 
             <Row className="center-carousel">
-                <h3>Hot Choice</h3>
+                <h3 style={{ color: '#66bfbf' }}>Hot Choice</h3>
                 <Col md="9">
                     <ClubCaraousel />
                 </Col>
             </Row>
-        </div>
+        </>
     );
 };
 

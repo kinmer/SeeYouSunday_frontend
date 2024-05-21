@@ -31,22 +31,38 @@ const Header = () => {
             <Collapse isOpen={menuOpen} navbar>
                 <Nav className="ms-auto" navbar>
                     <NavItem>
-                        <NavLink className="nav-link" to="/">
+                        <NavLink
+                            className="nav-link"
+                            to="/"
+                            style={{ color: '#fcfefc' }}
+                        >
                             <i className="fa fa-home fa-lg" /> Home
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink className="nav-link" to="/clubs">
+                        <NavLink
+                            className="nav-link"
+                            to="/clubs"
+                            style={{ color: '#fcfefc' }}
+                        >
                             <i className="fa fa-list fa-lg" /> Clubs
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink className="nav-link" to="/about">
+                        <NavLink
+                            className="nav-link"
+                            to="/about"
+                            style={{ color: '#fcfefc' }}
+                        >
                             <i className="fa fa-info fa-lg" /> About
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink className="nav-link" to="/members">
+                        <NavLink
+                            className="nav-link"
+                            to="/members"
+                            style={{ color: '#fcfefc' }}
+                        >
                             <i className="fa fa-address-card fa-lg" /> Members
                         </NavLink>
                     </NavItem>
