@@ -11,3 +11,7 @@ body {
 .site-footer {
     background-color: #f1f1f1;
 }
+
+#activity {
+    height: 250px;
+}
