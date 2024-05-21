@@ -23,7 +23,9 @@ const Header = () => {
                     className="float-start"
                     id="see"
                 />
-                <h1 className="mt-1">ee You Sunday</h1>
+                <h1 className="mt-1" style={{ color: '#fcfefc' }}>
+                    ee You Sunday
+                </h1>
             </NavbarBrand>
             <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
             <Collapse isOpen={menuOpen} navbar>

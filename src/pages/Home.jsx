@@ -7,7 +7,7 @@ const Home = () => {
         <div>
             <Row>
                 <Col md="5" className="m-4">
-                    <h3>
+                    <h3 style={{ color: 'red' }}>
                         Seize Your Sunday with
                         <br />
                         See You Sunday
