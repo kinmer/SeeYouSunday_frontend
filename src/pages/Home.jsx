@@ -8,7 +8,7 @@ const Home = () => {
         <>
             <Row>
                 <Col md="5" className="m-4">
-                    <h3 style={{ color: '#66bfbf' }}>
+                    <h3 style={{ color: '#f76b8a' }}>
                         Seize Your Sunday with
                         <br />
                         See You Sunday
@@ -29,12 +29,13 @@ const Home = () => {
             <br />
 
             <Row className="center-carousel">
-                <h3 style={{ color: '#66bfbf' }}>Hot Choice</h3>
+                <h3 style={{ color: '#f76b8a' }}>Hottest Clubs</h3>
                 <Col md="9">
                     <ClubCaraousel />
                 </Col>
             </Row>
             <Row className="center-topics">
+                <h3 style={{ color: '#f76b8a' }}>Hottest Clubs</h3>
                 <Col md="8">
                     <Topics />
                 </Col>
