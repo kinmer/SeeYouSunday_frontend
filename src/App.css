@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    background-color: #fcfefe;
 }
 
 .navbar {
@@ -14,4 +13,20 @@ body {
 
 #activity {
     height: 250px;
+}
+
+.center-carousel {
+    display: flex;
+    justify-content: center;
+
+    margin: 100px;
+}
+
+h1,
+h3 {
+    font-family: 'Merienda', cursive;
+}
+
+#see {
+    height: 45px;
 }

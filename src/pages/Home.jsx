@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import ClubCaraousel from '../features/clubs/ClubCarousel';
 import { Row, Col } from 'reactstrap';
 import Activity from '../assets/img/Activity.png';
@@ -8,11 +7,11 @@ const Home = () => {
         <div>
             <Row>
                 <Col md="5" className="m-4">
-                    <h2>
+                    <h3>
                         Seize Your Sunday with
                         <br />
                         See You Sunday
-                    </h2>
+                    </h3>
                     <br />
 
                     <p>
@@ -25,8 +24,14 @@ const Home = () => {
                     <img src={Activity} alt="activity" id="activity" />
                 </Col>
             </Row>
-            <Row>
-                <ClubCaraousel />
+            <br />
+            <br />
+
+            <Row className="center-carousel">
+                <h3>Hot Choice</h3>
+                <Col md="9">
+                    <ClubCaraousel />
+                </Col>
             </Row>
         </div>
     );

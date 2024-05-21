@@ -17,8 +17,13 @@ const Header = () => {
     return (
         <Navbar sticky="top" expand="md" className="navebar">
             <NavbarBrand className="ms-5" href="/">
-                <img src={ClubLogo} alt="logo" className="float-start" />
-                <h1 className="mt-1">See You Sunday</h1>
+                <img
+                    src={ClubLogo}
+                    alt="logo"
+                    className="float-start"
+                    id="see"
+                />
+                <h1 className="mt-1">ee You Sunday</h1>
             </NavbarBrand>
             <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
             <Collapse isOpen={menuOpen} navbar>
