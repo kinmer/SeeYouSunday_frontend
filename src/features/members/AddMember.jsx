@@ -13,19 +13,11 @@ import {
     ListGroupItem,
 } from 'reactstrap';
 
-import AddMember from '../features/members/AddMember.jsx';
-
-const ClubDetails = () => {
+const AddMember = () => {
     const [clubDetails, setClubDetails] = useState({});
     const [members, setMembers] = useState([]);
     const [availableMembers, setAvailableMembers] = useState([]);
     const [selectedMember, setSelectedMember] = useState('');
-    const [events, setEvents] = useState([]);
-    const [newEvent, setNewEvent] = useState({
-        topic: '',
-        date: '',
-        description: '',
-    });
 
     const { _id } = useParams();
     const navigate = useNavigate();
@@ -35,7 +27,6 @@ const ClubDetails = () => {
         console.log(response);
         setClubDetails(response.data);
         setMembers(response.data.members);
-        setEvents(response.data.events);
     };
     const fetchAvailableMembers = async () => {
         try {
@@ -65,32 +56,6 @@ const ClubDetails = () => {
 
     const handleChange = (e) => {
         setSelectedMember(e.target.value);
-    };
-
-    const handleEventChange = (e) => {
-        const { name, value } = e.target;
-        setNewEvent((prevEvent) => ({
-            ...prevEvent,
-            [name]: value,
-        }));
-    };
-
-    const handleAddEvent = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post(
-                `http://localhost:3000/clubs/${_id}/events`,
-                newEvent
-            );
-            setEvents([...events, response.data]);
-            setNewEvent({
-                topic: '',
-                date: '',
-                description: '',
-            });
-        } catch (error) {
-            console.error('There was an error adding the event!', error);
-        }
     };
 
     const deleteClub = async () => {
@@ -147,51 +112,9 @@ const ClubDetails = () => {
                     </select>
                     <button type="submit">Add Member</button>
                 </form>
-
-                <h3>Events</h3>
-                <ul>
-                    {events.map((event) => (
-                        <li key={event._id}>
-                            <strong>Topic:</strong> {event.topic},{' '}
-                            <strong>Date:</strong> {event.date},{' '}
-                            <strong>Description:</strong> {event.description}
-                        </li>
-                    ))}
-                </ul>
-                <h4>Add Event</h4>
-                <form onSubmit={handleAddEvent}>
-                    <label>
-                        Topic:
-                        <input
-                            type="text"
-                            name="topic"
-                            value={newEvent.topic}
-                            onChange={handleEventChange}
-                        />
-                    </label>
-                    <label>
-                        Date:
-                        <input
-                            type="date"
-                            name="date"
-                            value={newEvent.date}
-                            onChange={handleEventChange}
-                        />
-                    </label>
-                    <label>
-                        Description:
-                        <textarea
-                            name="description"
-                            value={newEvent.description}
-                            onChange={handleEventChange}
-                        />
-                    </label>
-                    <button type="submit">Add Event</button>
-                </form>
             </Col>
-            <AddMember />
         </Row>
     );
 };
 
-export default ClubDetails;
+export default AddMember;
