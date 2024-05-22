@@ -1,6 +1,6 @@
 import ClubCaraousel from '../features/clubs/ClubCarousel';
 import { Row, Col } from 'reactstrap';
-import Activity from '../assets/img/Activity.png';
+import Activity from '../images/Activity.png';
 import Topics from '../components/Topics';
 
 const Home = () => {

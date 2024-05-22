@@ -8,7 +8,7 @@ import {
     Nav,
     NavItem,
 } from 'reactstrap';
-import ClubLogo from '../assets/img/ClubLogo.png';
+import ClubLogo from '../images/ClubLogo.png';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
