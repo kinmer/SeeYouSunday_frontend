@@ -73,7 +73,15 @@ const AddMember = () => {
                         </option>
                     ))}
                 </select>
-                <Button type="submit">Add Member</Button>
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        marginTop: '10px',
+                    }}
+                >
+                    <button type="submit">Add Member</button>
+                </div>
             </form>
         </>
     );

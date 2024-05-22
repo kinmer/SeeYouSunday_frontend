@@ -15,7 +15,6 @@ const ClubCarousel = () => {
     const [randomClubs, setRandomClubs] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
-
     const fetchClubs = async () => {
         try {
             const response = await axios.get(
@@ -27,30 +26,25 @@ const ClubCarousel = () => {
             console.error('Error fetching clubs:', error);
         }
     };
-
     useEffect(() => {
         fetchClubs();
     }, []);
-
     const selectRandomClubs = (clubs, count) => {
         const shuffled = clubs.sort(() => 0.5 - Math.random());
         return shuffled.slice(0, count);
     };
-
     const next = () => {
         if (animating) return;
         const nextIndex =
             activeIndex === randomClubs.length - 1 ? 0 : activeIndex + 1;
         setActiveIndex(nextIndex);
     };
-
     const previous = () => {
         if (animating) return;
         const nextIndex =
             activeIndex === 0 ? randomClubs.length - 1 : activeIndex - 1;
         setActiveIndex(nextIndex);
     };
-
     const goToIndex = (newIndex) => {
         if (animating) return;
         setActiveIndex(newIndex);
@@ -72,7 +66,6 @@ const ClubCarousel = () => {
             </CarouselItem>
         );
     });
-
     return (
         <Row className="mb-4">
             <Col>
@@ -102,5 +95,4 @@ const ClubCarousel = () => {
         </Row>
     );
 };
-
 export default ClubCarousel;

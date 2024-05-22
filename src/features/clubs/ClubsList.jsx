@@ -31,7 +31,14 @@ const ClubsList = () => {
                     </Col>
                 ))}
             </Row>
-            <Link to="/clubs/add">
+            <Link
+                to="/clubs/add"
+                style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    marginTop: '10px',
+                }}
+            >
                 <button>New Club</button>
             </Link>
         </>

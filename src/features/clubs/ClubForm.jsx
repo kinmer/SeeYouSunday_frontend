@@ -3,7 +3,7 @@ import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 const ClubForm = ({ newClub, handleChange, addClub }) => {
     return (
         <div>
-            <h1>Add A Club</h1>
+            <h3 style={{ color: '#f76b8a' }}>Add A Club</h3>
             <Form onSubmit={addClub}>
                 <FormGroup>
                     <Label for="exampleEmail">Name</Label>

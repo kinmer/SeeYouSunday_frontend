@@ -69,7 +69,13 @@ const ClubDetails = () => {
                         </ListGroupItem>
                         <ListGroupItem>Time: {clubDetails.time}</ListGroupItem>
                     </ListGroup>
-                    <CardBody>
+                    <CardBody
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            marginTop: '10px',
+                        }}
+                    >
                         <button onClick={() => navigate(`/clubs/edit/${_id}`)}>
                             Edit
                         </button>

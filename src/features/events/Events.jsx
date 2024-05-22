@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import {} from 'reactstrap';
-
 const Events = () => {
     const [clubDetails, setClubDetails] = useState({});
     const [events, setEvents] = useState([]);
@@ -11,10 +9,8 @@ const Events = () => {
         date: '',
         description: '',
     });
-
     const { _id } = useParams();
     const navigate = useNavigate();
-
     const fetchClubDetails = async () => {
         let response = await axios.get(
             `https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/${_id}?`
@@ -22,11 +18,9 @@ const Events = () => {
         setClubDetails(response.data);
         setEvents(response.data.events);
     };
-
     useEffect(() => {
         fetchClubDetails();
     }, [_id]);
-
     const handleEventChange = (e) => {
         const { name, value } = e.target;
         setNewEvent((prevEvent) => ({
@@ -34,7 +28,6 @@ const Events = () => {
             [name]: value,
         }));
     };
-
     const handleAddEvent = async (e) => {
         e.preventDefault();
         try {
@@ -52,7 +45,6 @@ const Events = () => {
             console.error('There was an error adding the event!', error);
         }
     };
-
     return (
         <>
             <h3 style={{ color: '#f76b8a' }}>Events</h3>
@@ -95,10 +87,17 @@ const Events = () => {
                         onChange={handleEventChange}
                     />
                 </label>
-                <button type="submit">Add Event</button>
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        marginTop: '10px',
+                    }}
+                >
+                    <button type="submit">Add Event</button>
+                </div>
             </form>
         </>
     );
 };
-
 export default Events;
