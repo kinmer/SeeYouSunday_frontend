@@ -16,7 +16,9 @@ const Events = () => {
     const navigate = useNavigate();
 
     const fetchClubDetails = async () => {
-        let response = await axios.get(`http://localhost:3000/clubs/${_id}?`);
+        let response = await axios.get(
+            `https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/${_id}?`
+        );
         setClubDetails(response.data);
         setEvents(response.data.events);
     };
@@ -37,7 +39,7 @@ const Events = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                `http://localhost:3000/clubs/${_id}/events`,
+                `https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/${_id}/events`,
                 newEvent
             );
             setEvents([...events, response.data]);
@@ -53,17 +55,19 @@ const Events = () => {
 
     return (
         <>
-            <h3>Events</h3>
+            <h3 style={{ color: '#f76b8a' }}>Events</h3>
             <ul>
                 {events.map((event) => (
                     <li key={event._id}>
-                        <strong>Topic:</strong> {event.topic},{' '}
-                        <strong>Date:</strong> {event.date},{' '}
+                        <strong>Topic:</strong> {event.topic}, <br />
+                        <strong>Date:</strong>{' '}
+                        {new Date(event.date).toLocaleDateString('en-CA')},{' '}
+                        <br />
                         <strong>Description:</strong> {event.description}
                     </li>
                 ))}
             </ul>
-            <h4>Add Event</h4>
+            <h3 style={{ color: '#f76b8a' }}>Add Event</h3>
             <form onSubmit={handleAddEvent}>
                 <label>
                     Topic:

@@ -8,7 +8,9 @@ import AnimatedClubCard from './AnimatedClubCard';
 const ClubsList = () => {
     const [clubs, setClubs] = useState([]);
     const fetchClubs = async () => {
-        let response = await axios.get('http://localhost:3000/clubs');
+        let response = await axios.get(
+            'https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/clubs'
+        );
         setClubs(response.data);
     };
     useEffect(() => {

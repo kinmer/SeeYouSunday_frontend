@@ -25,7 +25,9 @@ const Members = () => {
     const navigate = useNavigate();
 
     const fetchMembers = async () => {
-        let response = await axios.get('http://localhost:3000/members');
+        let response = await axios.get(
+            'https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/members'
+        );
         setMembers(response.data);
     };
     useEffect(() => {
@@ -43,7 +45,10 @@ const Members = () => {
     const addMember = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3000/members', newMember);
+            await axios.post(
+                'https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/members',
+                newMember
+            );
             fetchMembers();
             setNewMember({ name: '', occupation: '', age: '', profile: '' });
             navigate('/members');

@@ -18,7 +18,9 @@ const ClubCarousel = () => {
 
     const fetchClubs = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/clubs');
+            const response = await axios.get(
+                'https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/clubs'
+            );
             setClubs(response.data);
             setRandomClubs(selectRandomClubs(response.data, 3));
         } catch (error) {

@@ -39,7 +39,10 @@ const EditClub = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:3000/clubs/${_id}`, clubDetails);
+            await axios.put(
+                `https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/${_id}`,
+                clubDetails
+            );
             navigate(`/clubs/${_id}`);
         } catch (error) {
             console.error('Error updating club:', error);
@@ -48,7 +51,7 @@ const EditClub = () => {
 
     return (
         <div>
-            <h1>Edit Club</h1>
+            <h3 style={{ color: '#f76b8a' }}>Edit Club</h3>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"

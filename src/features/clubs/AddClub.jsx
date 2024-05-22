@@ -26,7 +26,10 @@ const AddClub = () => {
     const addClub = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3000/clubs', newClub);
+            await axios.post(
+                'https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/clubs',
+                newClub
+            );
             navigate('/clubs');
         } catch (error) {
             console.error('There was an error adding the club!', error);

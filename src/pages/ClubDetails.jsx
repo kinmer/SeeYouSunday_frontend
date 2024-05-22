@@ -22,13 +22,17 @@ const ClubDetails = () => {
     const navigate = useNavigate();
 
     const fetchClubDetails = async () => {
-        let response = await axios.get(`http://localhost:3000/clubs/${_id}?`);
+        let response = await axios.get(
+            `https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/clubs/${_id}?`
+        );
         console.log(response);
         setClubDetails(response.data);
     };
     const fetchAvailableMembers = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/members');
+            const response = await axios.get(
+                'https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/members'
+            );
             setAvailableMembers(response.data);
         } catch (error) {
             console.error('Error fetching available members:', error);
@@ -41,7 +45,9 @@ const ClubDetails = () => {
 
     const deleteClub = async () => {
         try {
-            await axios.delete(`http://localhost:3000/clubs/${_id}`);
+            await axios.delete(
+                `https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/clubs/${_id}`
+            );
             navigate('/clubs');
         } catch (error) {
             console.error('Error deleting club:', error);

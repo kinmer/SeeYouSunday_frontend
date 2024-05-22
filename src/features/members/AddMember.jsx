@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ListGroup, ListGroupItem } from 'reactstrap';
+import { ListGroup, ListGroupItem, Button } from 'reactstrap';
 
 const AddMember = () => {
     const [clubDetails, setClubDetails] = useState({});
@@ -13,14 +13,18 @@ const AddMember = () => {
     const navigate = useNavigate();
 
     const fetchClubDetails = async () => {
-        let response = await axios.get(`http://localhost:3000/clubs/${_id}?`);
+        let response = await axios.get(
+            `https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/clubs/${_id}?`
+        );
         console.log(response);
         setClubDetails(response.data);
         setMembers(response.data.members);
     };
     const fetchAvailableMembers = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/members');
+            const response = await axios.get(
+                'https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/members'
+            );
             setAvailableMembers(response.data);
         } catch (error) {
             console.error('Error fetching available members:', error);
@@ -35,7 +39,7 @@ const AddMember = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                `http://localhost:3000/clubs/${_id}/addMember`,
+                `https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/clubs/${_id}/addMember`,
                 { memberId: selectedMember }
             );
             setMembers([...members, response.data]);
@@ -50,7 +54,7 @@ const AddMember = () => {
 
     return (
         <>
-            <h5> Club Members</h5>
+            <h3 style={{ color: '#f76b8a' }}> Club Members</h3>
             <ListGroup>
                 {members.map((member) => (
                     <ListGroupItem key={member._id}>
@@ -59,7 +63,7 @@ const AddMember = () => {
                 ))}
             </ListGroup>
 
-            <h4>Add Existing Member</h4>
+            <h3 style={{ color: '#f76b8a' }}>Add Existing Member</h3>
             <form onSubmit={handleAddMember}>
                 <select onChange={handleChange} value={selectedMember}>
                     <option value="">Select a member</option>
@@ -69,7 +73,7 @@ const AddMember = () => {
                         </option>
                     ))}
                 </select>
-                <button type="submit">Add Member</button>
+                <Button type="submit">Add Member</Button>
             </form>
         </>
     );
