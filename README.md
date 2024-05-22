@@ -6,9 +6,11 @@
 
 #### By: Yong Zhang （_A storyteller endowed with an array of weapons._）
 
-[Website] [GitHub](https://github.com/kinmer) [LinkedIn](www.linkedin.com/in/yong-zhang-a1597bb7/)
+[GitHub](https://github.com/kinmer) [LinkedIn](www.linkedin.com/in/yong-zhang-a1597bb7/)
 
-Link: [TBD]
+-   [Frontend Deploy](https://seeyousunday-e2ba776e3d59.herokuapp.com/)
+-   [Backend Deploy](https://seeyousunday-backend-5a3db0f273d4.herokuapp.com/)
+-   [Backend GitHub](https://github.com/kinmer/SeeYouSunday_backend)
 
 ---
 
@@ -26,6 +28,11 @@ See You Sunday is an innovative event and social platform designed to bring peop
 -   Express
 -   MongoDB
 -   Node
+
+[Page Structure](https://www.figma.com/file/IVkiHybAQaAPc2OtkzUjw2/See-You-Sunday-Framwork?type=whiteboard&node-id=0-1&t=GO55C6EfUDOWr9sx-0)
+[screenshot1](<Screenshot 2024-05-22 at 11.25.56.png>)
+[screenshot2](<Screenshot 2024-05-22 at 11.26.21.png>)
+[screenshot3](<Screenshot 2024-05-22 at 11.26.07.png>)
 
 ## Key Features:
 

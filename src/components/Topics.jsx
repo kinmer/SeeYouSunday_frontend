@@ -12,40 +12,37 @@ const Topics = () => {
         <CardGroup>
             <Card>
                 <CardBody>
-                    <CardTitle tag="h5">Card title</CardTitle>
+                    <CardTitle tag="h5">Paw Friends Hang Out</CardTitle>
                     <CardSubtitle className="mb-2 text-muted" tag="h6">
-                        Card subtitle
+                        Dog Club
                     </CardSubtitle>
                     <CardText>
-                        This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a
-                        little bit longer.
+                        A perfect meet-up for pet lovers to socialize and let
+                        their furry friends play together.
                     </CardText>
                 </CardBody>
             </Card>
             <Card>
                 <CardBody>
-                    <CardTitle tag="h5">Card title</CardTitle>
+                    <CardTitle tag="h5">City Tour Toronto</CardTitle>
                     <CardSubtitle className="mb-2 text-muted" tag="h6">
-                        Card subtitle
+                        Jogging Club
                     </CardSubtitle>
                     <CardText>
-                        This card has supporting text below as a natural lead-in
-                        to additional content.
+                        Explore the iconic landmarks and hidden gems of Toronto
+                        in a fun and interactive city tour.
                     </CardText>
                 </CardBody>
             </Card>
             <Card>
                 <CardBody>
-                    <CardTitle tag="h5">Card title</CardTitle>
+                    <CardTitle tag="h5">Winning Eleven Championship</CardTitle>
                     <CardSubtitle className="mb-2 text-muted" tag="h6">
-                        Card subtitle
+                        Winning Eleven
                     </CardSubtitle>
                     <CardText>
-                        This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This card has
-                        even longer content than the first to show that equal
-                        height action.
+                        Compete in the ultimate soccer video game tournament and
+                        showcase your skills to win the championship.
                     </CardText>
                 </CardBody>
             </Card>
