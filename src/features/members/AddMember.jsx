@@ -48,15 +48,6 @@ const AddMember = () => {
         setSelectedMember(e.target.value);
     };
 
-    const deleteClub = async () => {
-        try {
-            await axios.delete(`http://localhost:3000/clubs/${_id}`);
-            navigate('/clubs');
-        } catch (error) {
-            console.error('Error deleting club:', error);
-        }
-    };
-
     return (
         <>
             <h5> Club Members</h5>
