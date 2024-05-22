@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ClubForm from './ClubForm';
+import { Row, Col } from 'reactstrap';
+
 const AddClub = () => {
     const [newClub, setNewClub] = useState({
         name: '',
@@ -32,13 +34,15 @@ const AddClub = () => {
     };
 
     return (
-        <div>
-            <ClubForm
-                newClub={newClub}
-                handleChange={handleChange}
-                addClub={addClub}
-            />
-        </div>
+        <Row className="align-items-center">
+            <Col md="8" className="mx-auto">
+                <ClubForm
+                    newClub={newClub}
+                    handleChange={handleChange}
+                    addClub={addClub}
+                />
+            </Col>
+        </Row>
     );
 };
 
